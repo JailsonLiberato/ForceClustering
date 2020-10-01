@@ -1,5 +1,6 @@
 from sklearn.datasets import make_blobs
 from model.point import Point
+from util.plot_util import PlotUtil
 
 
 class ForceClustering:
@@ -18,8 +19,10 @@ class ForceClustering:
 
     def __initialize_points(self):
         print("Initializing points...")
-        positions, labels = make_blobs (n_samples=self.__number_points, centers=self.__number_clusters,
-                                   n_features=self.__number_dimensions, random_state=0)
+        positions, labels = make_blobs(n_samples=self.__number_points, centers=self.__number_clusters,
+                                       center_box=(self.__min_range, self.__max_range),
+                                       n_features=self.__number_dimensions, random_state=0)
+        PlotUtil.plot_graphic(positions, labels, self.__number_dimensions)
         print("Positions: ")
         print(positions)
         print("Labels: ")
@@ -39,3 +42,7 @@ class ForceClustering:
 
     def __check_stop(self):
         pass
+
+    @property
+    def points(self):
+        return self.__points
