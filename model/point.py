@@ -1,8 +1,12 @@
 class Point:
+    """Point Model"""
 
-    def __init__(self):
+    def __init__(self, position):
         self.__charge = -1
-        self.__position = None
+        self.__position = position
+
+    def __str__(self):
+        return "Point: " + self.__position
 
     @property
     def charge(self):
@@ -17,5 +21,5 @@ class Point:
         return self.__position
 
     @position.setter
-    def charge(self, position):
+    def position(self, position):
         self.__position = position
