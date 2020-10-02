@@ -4,6 +4,7 @@ class Point:
     def __init__(self, position):
         self.__charge = -1
         self.__position = position
+        self.__distance = []
 
     def __str__(self):
         return "Point: " + self.__position
@@ -23,3 +24,11 @@ class Point:
     @position.setter
     def position(self, position):
         self.__position = position
+
+    @property
+    def distance(self):
+        return self.__distance
+
+    @distance.setter
+    def distance(self, distance):
+        self.__distance = distance
